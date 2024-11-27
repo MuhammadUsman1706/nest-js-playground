@@ -23,7 +23,8 @@ model User {
 
   firstName String?
   lastName  String?
-  Bookmark  Bookmark[]
+
+  bookmarks Bookmark[]
 
   // to rename table in the database (decouple model name from table name) 
   @@map("users")

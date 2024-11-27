@@ -10,14 +10,14 @@ export class AuthController {
 
   @Post('signup')
   // never use @Req() req: Request, it is express focused, not Nest js. It will be difficult for you to move to other underlying framework like fastify, or some other in future.
-  // @Body() means it is Nest's headache to
+  // @Body() means it is Nest's headache to parse the body
   signup(@Body() dto: AuthDto) {
     return this.authService.signup(dto);
   }
 
   @Post('signin')
-  signin() {
-    return this.authService.signin();
+  signin(@Body() dto: AuthDto) {
+    return this.authService.signin(dto);
   }
 }
 

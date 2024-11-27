@@ -1,11 +1,15 @@
 {
   "name": "basic-nest-js-app",
   "version": "0.0.1",
-  "description": "Nest.js application with authentcation and database (SQL) integration, for learning purpose.",
+  "description": "Nest.js application with authentication and database (SQL) integration, for learning purpose.",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "prisma:dev:deploy": "prisma migrate dev",
+    "dev:db:rm": "docker-compose rm dev-db -s -f -v",
+    "dev:db:up": "docker-compose up dev-db -d",
+    "dev:db:restart": "pnpm run dev:db:rm && pnpm run dev:db:up && timeout 1 && pnpm run prisma:dev:deploy",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
@@ -21,6 +25,7 @@
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
+    "@nestjs/config": "^3.3.0",
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
     "@prisma/client": "^5.22.0",

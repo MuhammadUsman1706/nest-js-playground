@@ -18,9 +18,7 @@ import { BookmarkModule } from './bookmark/bookmark.module';
   ],
 })
 export class AppModule {
-  //   constructor() {
-  //     console.log('AppModule created!');
-  //   }
+  // constructor() { console.log('AppModule created!'); }
 }
 
 // config module is usually configured in the root module
